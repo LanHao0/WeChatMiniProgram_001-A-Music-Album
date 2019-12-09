@@ -1,0 +1,11 @@
+<!--pages/album.wxml-->
+<navigator open-type="navigate" url="/pages/AllAlbum/singleOne/singleOne?index={{ index }}">
+  <view  class="albumCard">
+      <image class="album_image" src="../../assets/cover/{{ imgURL }}" />
+          <view class="albumDes">
+              <text class="albumDesTitle">{{ albumName }} \n</text>
+              <br />
+              <text class="greyArtist">{{ artist }}</text>
+          </view>
+  </view>
+</navigator>

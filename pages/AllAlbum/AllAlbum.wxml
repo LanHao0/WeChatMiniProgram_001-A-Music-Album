@@ -1,0 +1,12 @@
+<!--pages/AllAlbum/AllAlbum.wxml-->
+<view class="bg-dark text-center">
+  <Album wx:for="{{ json }}" 
+  albumName="{{ item.albumName }}" 
+  artist="{{ item.artist }}" 
+  imgURL="{{ item.imgURL }}" 
+  years="{{ item.years }}" 
+  index="{{ index }}"
+  wx:key="albumName"
+  class="album"
+  ></Album>
+</view>

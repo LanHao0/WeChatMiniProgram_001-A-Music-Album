@@ -1,0 +1,26 @@
+<!--textages/AllAlbum/singleOne/singleOne.wxml-->
+<view class="bg-black">
+  <view class="topFloat">
+    <navigator open-type="navigateBack">
+      <image class="album_image" src="../../assets/cover/{{json[index].imgURL}}" />
+    </navigator>
+
+
+    <view class="albumINFO">
+      <text class="albumDesTitle">{{ json[index].albumName }} \n</text>
+      <text class="albumDes">{{ json[index].artist }} · {{ json[index].year }} \n \n</text>
+
+    </view>
+
+  </view>
+
+  <view wx:for="{{json[index].song}}" wx:key="item" class="song">
+    <text class="songTitle">{{item.name}} \n</text>
+    <text class="songDes">{{item.artist}}</text>
+  </view>
+  <view wx:if="{{ json[index].song.length<20 }}">
+    <view wx:for="{{ 20-json[index].song.length }}" wx:key="item">
+      <text> \n </text>
+    </view>
+  </view>
+</view>

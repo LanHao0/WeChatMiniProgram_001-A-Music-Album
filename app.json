@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/AllAlbum/AllAlbum",
+    "pages/AllAlbum/singleOne/singleOne"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "兰兰想的部分音乐",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "index"
+      },
+      {
+        "pagePath": "pages/AllAlbum/AllAlbum",
+        "text": "allAlbum"
+      }
+    ],
+    "backgroundColor": "#000",
+    "color": "#fff"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
