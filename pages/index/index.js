@@ -22,10 +22,29 @@ Page({
     });
     
   },
+  buttonTap:function(e){
+    if(this.data.enterName!=''){
+      wx.redirectTo({
+        url: '../AllAlbum/singleOne/singleOne?index=' + this.data.enterName + '.jpg',
+      });
+    }else{
+      wx.showModal({
+        title: 'NO Album Name',
+        content: 'Please Enter Album Name',
+      })
+    }
+
+  },
+  inputChange:function(e){
+    this.setData({
+      enterName:e.detail.value
+    })
+  },
   data: {
     index:0,
     arr: ['1','9','7','4','2'],
     selection:['DES','ASC'],
+    enterName:'ForYou',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')

@@ -8,3 +8,6 @@
 .album{
   display: inline-flex;
 }
+.text-white{
+  color: white;
+}

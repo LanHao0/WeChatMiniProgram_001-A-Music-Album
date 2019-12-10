@@ -18,3 +18,11 @@
 .bg-dark{
   background-color: black;
 }
+
+.btn{
+  border: none;
+  background-color: #eee;
+}
+.text-white{
+  color: white;
+}

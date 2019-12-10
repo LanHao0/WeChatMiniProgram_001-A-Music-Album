@@ -1,8 +1,11 @@
 <!--pages/AllAlbum/AllAlbum.wxml-->
-<picker value="{{index}}" range="{{opt}}" bindchange="PickerBindChange">
-  {{opt[index]}}
-</picker>
 <view class="bg-dark text-center">
+<view style="background-color:black;color:white;">
+  <picker value="{{index}}" range="{{opt}}" bindchange="PickerBindChange">
+      {{opt[index]}}
+  </picker>
+</view>
+<view wx:if="{{!searching }}">
   <Album wx:for="{{ json }}" 
   albumName="{{ item.albumName }}" 
   artist="{{ item.artist }}" 
@@ -11,4 +14,23 @@
   wx:key="albumName"
   class="album"
   ></Album>
+</view>
+<view wx:if="{{searching}}">
+  <Album wx:for="{{ searchResult }}" 
+  albumName="{{ item.albumName }}" 
+  artist="{{ item.artist }}" 
+  imgURL="{{ item.imgURL }}" 
+  index="{{ index }}"
+  wx:key="albumName"
+  class="album"
+  ></Album>
+</view>
+<text class="text-white">Search</text>
+  <input placeholder="type things" class="text-white" bindinput="bindInputChange">
+  </input>
+    <view wx:if="{{searchResult.length<10}}">
+      <view wx:for="{{20-searchResult.length}}" wx:key="item">
+        <text> \n </text>
+    </view>
+    </view>
 </view>

@@ -3,6 +3,27 @@ Page({
   /**
    * 页面的初始数据
    */
+  bindInputChange:function(e){
+    if(e.detail.value!=null){
+      let json_data = this.data.json;
+      let result = [];
+      for (let i = 0; i < json_data.length; i++) {
+        if (json_data[i].albumName.indexOf(e.detail.value) != -1) {
+          result.push(json_data[i]);
+        }
+      }
+      this.setData({
+        searchResult: result,
+        searching: true
+      })
+    }else{
+      this.setData({
+        searching: false
+      })
+    }
+
+
+  },
   PickerBindChange:function(e){
     let json_data=this.data.json;
     if(e.detail.value==0){
@@ -33,6 +54,8 @@ Page({
   },
   data: {
     index:0,
+    searching:false,
+    searchResult:[],
     opt:['Year','A-Z'],
     soManyYears:[],
     json: [{

@@ -8,15 +8,18 @@
     </block>
   </view>
   <view class="bg-dark">
-  Original : {{arr}}
-    <picker value="{{index}}" range="{{selection}}" bindchange="bindPickerChange"
-      >
-      {{ selection[index] }}
+    Original : {{arr}}
+    <picker value="{{index}}" range="{{selection}}" bindchange="bindPickerChange">
+      {{ selection[index] }} ▼
     </picker>
+    <text>\n 输入专辑名,(无空格) \n</text>
+    <input placeholder="Album_Name" class="text-white" value="{{enterName}}" bindinput="inputChange"></input>
+    <text>\n</text>
+    <button class="btn" bindtap="buttonTap" type="default"> 点击进入{{enterName}} </button>
   </view>
 
-    <view wx:for="{{15}}" wx:key="item">
-        <text> \n </text>
-    </view>
+  <view wx:for="{{12}}" wx:key="item">
+    <text> \n </text>
+  </view>
 
 </view>
