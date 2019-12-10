@@ -1,11 +1,19 @@
 // pages/AllAlbum/singleOne/singleOne.js
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
+  
   data: {
+    jsonindex:0,
+    albumName: '',
+    artist: '',
+    year: '',
+    imgURL: '',
+    song: [],
     json: [{
+      
       "albumName": "Find You - Single",
       "year": "2017",
       "artist": "Nick Jonas",
@@ -351,8 +359,22 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      index:options.index
-    })
+      index: options.index
+    });
+
+    for(let i=0;i<this.data.json.length;i++){
+      if (this.data.json[i].imgURL == options.index){
+        this.setData({
+          albumName: this.data.json[i].albumName,
+          artist: this.data.json[i].artist,
+          year: this.data.json[i].year,
+          imgURL: this.data.json[i].imgURL,
+          song: this.data.json[i].song
+        })
+        break;
+      }
+    }
+    
   },
 
   /**

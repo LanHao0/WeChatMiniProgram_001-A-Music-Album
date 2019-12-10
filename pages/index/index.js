@@ -3,8 +3,29 @@
 const app = getApp()
 
 Page({
+  bindPickerChange: function (e) {
+    let arrData=this.data.arr;
+    if(e.detail.value==0){
+      // 降序
+      this.setData({
+        arr:arrData.sort((a,b)=>b-a)
+      })
+    }else{
+      // 升序
+      this.setData({
+        arr: arrData.sort((a, b) => a - b)
+      })
+      
+    }
+    this.setData({
+      index: e.detail.value,
+    });
+    
+  },
   data: {
-    motto: 'Hello World',
+    index:0,
+    arr: ['1','9','7','4','2'],
+    selection:['DES','ASC'],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -42,6 +63,8 @@ Page({
         }
       })
     }
+    
+
   },
   getUserInfo: function(e) {
     console.log(e)

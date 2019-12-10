@@ -7,8 +7,12 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="bg-dark">
+  Original : {{arr}}
+    <picker value="{{index}}" range="{{selection}}" bindchange="bindPickerChange"
+      >
+      {{ selection[index] }}
+    </picker>
   </view>
 
     <view wx:for="{{15}}" wx:key="item">

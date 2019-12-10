@@ -23,7 +23,7 @@ Component({
     index:{
       type:String,
       value:'0'
-    }
+    },
   },
 
   /**

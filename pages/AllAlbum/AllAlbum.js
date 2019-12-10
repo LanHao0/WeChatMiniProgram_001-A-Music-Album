@@ -3,26 +3,39 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    Selected:'',
-    PickerChange:function(e){
+  PickerBindChange:function(e){
+    let json_data=this.data.json;
+    if(e.detail.value==0){
       this.setData({
-        Selected:year
-      })
-    },
+        json:json_data.sort(compareYear)
+      });
+
+    }else{
+      console.log('else');
+      this.setData({
+        json: json_data.sort(compareAz)
+      });
+    }
+    function compareYear(a,b){
+      return a['year'] - b['year']
+    }
+    function compareAz(a, b) {
+      let aa=a.albumName.substr(0,1);
+      let bb = b.albumName.substr(0, 1);
+      if(aa>bb){return 1}
+      if(aa<bb){return -1}
+      return 0
+    }
+    this.setData({
+      index: e.detail.value
+    });
+
+  },
+  data: {
+    index:0,
+    opt:['Year','A-Z'],
     soManyYears:[],
     json: [{
-      "albumName": "Find You - Single",
-      "year": "2017",
-      "artist": "Nick Jonas",
-      "imgURL": "FindYouSingle.jpg",
-      "song": [
-        {
-          "name": "Find You",
-          "artist": "Nick Jonas"
-        }
-      ]
-    },{
         "albumName": "Fires",
         "year": "2012",
         "artist": "Ronan Keating",
@@ -134,6 +147,17 @@ Page({
           }
         ]
       }, {
+        "albumName": "Find You - Single",
+        "year": "2017",
+        "artist": "Nick Jonas",
+        "imgURL": "FindYouSingle.jpg",
+        "song": [
+          {
+            "name": "Find You",
+            "artist": "Nick Jonas"
+          }
+        ]
+      },{
         "albumName": "Memories...Do Not Open",
         "year": "2017",
         "artist": "The Chainsmokers & Coldplay",
@@ -367,8 +391,10 @@ Page({
       function desCompare(a,b){
         return b-a;
       }
+
       this.setData({
-        soManyYears:yearARR.sort(desCompare)
+        soManyYears:yearARR.sort(desCompare),
+        
       })
 
   },
