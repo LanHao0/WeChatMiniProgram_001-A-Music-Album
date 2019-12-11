@@ -1,0 +1,40 @@
+/* pages/PickBuying/confirmBuy/confirmBuy.wxss */
+.bg-black{
+  background-color: black;
+}
+.text-white{
+  color:white;
+}
+.btn{
+  border-radius: 0px;
+}
+.input_num{
+  width: 50px;
+  height: 30px;
+  font-size:20px;
+  text-align: center;
+  border: solid 1px #fff;
+}
+
+button{
+  font-size:16px;
+  color:white;
+  background-color: black;
+}
+.Pick{
+  display: inline-block;
+}
+.album{
+  display: inline-flex;
+}
+.priceAndBuy{
+  margin:15px;
+}
+.text-center{
+  text-align: center;
+}
+.confirmBuy{
+  border:solid 1px rgb(49, 226, 167);
+  border-radius: 25px;
+  color:rgb(49, 226, 167);
+}

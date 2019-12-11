@@ -6,6 +6,9 @@
 .text-white{
   color:white;
 }
+.text-center{
+  text-align: center;
+}
 .album{
   display: inline-flex;
 }
@@ -49,4 +52,8 @@ button{
   border-radius: 30px;
   text-shadow: 1px 1px 6px #000;
   z-index: 100;
+}
+.topImgae{
+  width: 120px;
+  height: 120px;
 }

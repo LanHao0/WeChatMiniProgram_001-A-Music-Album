@@ -1,5 +1,62 @@
 // pages/PickBuying/PickBuying.js
 Page({
+  checkBill:function(){
+    //提交订单前,合并购买数组
+    let buyingData=this.data.buying;
+    let resultArr=this.mergeBill(buyingData);
+    wx.setStorage({
+      key: 'cargo',
+      data: resultArr,
+    });
+    wx.navigateTo({
+      url: './confirmBuy/confirmBuy' + '?albums=' + 1,
+    })
+  },
+
+  mergeBill:function(arr){
+    arr.sort(compareAZ);
+    // console.log(arr);
+
+    let temp_element={
+        "imgURL":null
+    };
+    let count = 1;
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+      if (temp_element.imgURL != arr[i].AlbumInfo.imgURL) {
+        count = 1;
+        result.push({
+          "element": arr[i],
+          "times": count
+        });
+        temp_element = arr[i].AlbumInfo;
+        console.log('等于');
+      } else {
+        console.log('不等');
+        count++;
+        let index = 0;
+        for (let j = 0; j < result.length; j++) {
+          if (temp_element.imgURL == result[j].element.AlbumInfo.imgURL) {
+            index = j;
+            break;
+          }
+        }
+        // console.log(index)
+        result[index].times = count;
+      }
+    }
+    // console.log(result);
+    return result;
+
+    function compareAZ(a, b) {
+      let aa = a.AlbumInfo.imgURL;
+      let bb = b.AlbumInfo.imgURL;
+      if (aa>bb) return 1
+      if (aa<bb) return -1
+      return 0
+    }
+  },
   plusButton:function(e){
     // console.log(e.currentTarget.dataset.item)
     // console.log(e.currentTarget.dataset.index)
@@ -15,14 +72,15 @@ Page({
 
     let buying= this.data.buying;
 
+
     buying.push(
         {
-          "imgURL": itemData.imgURL,
+        "AlbumInfo":itemData,
         "price": parseFloat(itemData.price),
         }
       );
 
-    console.log(buying);
+    // console.log(buying);
 
     this.setData({
       preparedARR: arr,

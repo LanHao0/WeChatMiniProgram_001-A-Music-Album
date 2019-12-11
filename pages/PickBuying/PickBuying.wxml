@@ -1,6 +1,15 @@
 <!--pages/PickBuying/PickBuying.wxml-->
 <view class="bg-black text-white">
+  <view class="text-center">
+    <swiper indicator-dots="true" autoplay="true" interval="2000">
+      <swiper-item wx:for="{{json}}" wx:key="index">
+        <text>{{item.albumName}} \n</text>
+        <image class="topImgae" src="../assets/cover/{{ item.imgURL }}" />
+      </swiper-item>
+    </swiper>
+  </view>
   <text>You can buy album in this page</text>
+  
   <view wx:for="{{ json }}" wx:key="albumName" class="album">
     <Album albumName="{{ item.albumName }}" artist="{{ item.artist }}" imgURL="{{ item.imgURL }}" index="{{ index }}"></Album>
     <view class="priceAndBuy">
@@ -17,7 +26,7 @@
   </view>
 
 
-  <button class="total" size="mini">
+  <button class="total" size="mini" bindtap="checkBill">
     <text>TotalPrice: ${{totalPrice}}</text>
   </button>
 </view>

@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/AllAlbum/AllAlbum",
     "pages/AllAlbum/singleOne/singleOne",
-    "pages/PickBuying/PickBuying"
+    "pages/PickBuying/PickBuying",
+    "pages/PickBuying/confirmBuy/confirmBuy"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -26,7 +27,6 @@
         "pagePath": "pages/PickBuying/PickBuying",
         "text": "PickThings"
       }
-      
     ],
     "backgroundColor": "#000",
     "color": "#fff"

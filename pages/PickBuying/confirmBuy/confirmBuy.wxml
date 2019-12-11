@@ -1,0 +1,27 @@
+<!--pages/PickBuying/confirmBuy/confirmBuy.wxml-->
+<view class="bg-black text-white">
+  <view wx:for="{{ buying }}" wx:key="albumName" class="album">
+    <Album albumName="{{ item.element.AlbumInfo.albumName }}" artist="{{ item.element.AlbumInfo.artist }}" imgURL="{{ item.element.AlbumInfo.imgURL }}" index="{{ index }}"></Album>
+    <view class="priceAndBuy">
+      <text>Price: ${{ item.element.AlbumInfo.price }}</text>
+      <view>
+        <button type="default" class="btn Pick" size='mini' disabled="{{preparedButton[index]}}" data-item="{{item}}" data-index="{{index}}" bindtap="minusButton">-</button>
+        <input value="{{preparedARR[index]}}" class="input_num Pick"></input>
+        <button type="default" class="btn Pick" size='mini' bindtap="plusButton" data-item="{{item}}" data-index="{{index}}">+</button>
+      </view>
+
+    </view>
+  </view>
+  <view wx:if="{{buying.length<4}}">
+    <view wx:for="{{4-buying.length}}" wx:key="index">
+      <text>\n</text>
+    </view>
+  </view>
+  <text>TotalPrice: ${{totalPrice}}</text>
+  <button class="confirmBuy">Confirm Buy</button>
+    <view wx:if="{{buying.length<4}}">
+    <view wx:for="{{16-buying.length}}" wx:key="index">
+      <text>\n</text>
+    </view>
+  </view>
+</view>
