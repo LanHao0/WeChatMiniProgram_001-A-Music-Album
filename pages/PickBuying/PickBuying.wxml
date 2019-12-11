@@ -1,0 +1,23 @@
+<!--pages/PickBuying/PickBuying.wxml-->
+<view class="bg-black text-white">
+  <text>You can buy album in this page</text>
+  <view wx:for="{{ json }}" wx:key="albumName" class="album">
+    <Album albumName="{{ item.albumName }}" artist="{{ item.artist }}" imgURL="{{ item.imgURL }}" index="{{ index }}"></Album>
+    <view class="priceAndBuy">
+      <text>Release Year: {{ item.year }} \n \n </text>
+      <text>Price: ${{ item.price }}</text>
+
+      <view>
+        <button type="default" class="btn Pick" size='mini' disabled="{{preparedButton[index]}}" data-item="{{item}}" data-index="{{index}}" bindtap="minusButton">-</button>
+        <input value="{{preparedARR[index]}}" class="input_num Pick"></input>
+        <button type="default" class="btn Pick" size='mini' bindtap="plusButton" data-item="{{item}}" data-index="{{index}}">+</button>
+      </view>
+
+    </view>
+  </view>
+
+
+  <button class="total" size="mini">
+    <text>TotalPrice: ${{totalPrice}}</text>
+  </button>
+</view>

@@ -1,0 +1,52 @@
+/* pages/PickBuying/PickBuying.wxss */
+
+.bg-black{
+  background-color: black;
+}
+.text-white{
+  color:white;
+}
+.album{
+  display: inline-flex;
+}
+
+.Pick{
+  display: inline-block;
+}
+
+.priceAndBuy{
+  margin:15px;
+  text-align: right;
+}
+
+.bigborder{
+  border: solid 1px #fff;
+}
+.btn{
+  border-radius: 0px;
+}
+.input_num{
+  width: 50px;
+  height: 30px;
+  font-size:20px;
+  text-align: center;
+  border: solid 1px #fff;
+}
+
+button{
+  font-size:16px;
+  color:white;
+  background-color: black;
+}
+
+.total{
+  position: fixed;
+  bottom: 2px;
+  right: 2px;
+  background-color:rgba(75, 75, 75, 0.75);
+  padding:10px;
+  border:solid 1px #fff;
+  border-radius: 30px;
+  text-shadow: 1px 1px 6px #000;
+  z-index: 100;
+}

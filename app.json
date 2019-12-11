@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/AllAlbum/AllAlbum",
-    "pages/AllAlbum/singleOne/singleOne"
+    "pages/AllAlbum/singleOne/singleOne",
+    "pages/PickBuying/PickBuying"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,7 +21,12 @@
       {
         "pagePath": "pages/AllAlbum/AllAlbum",
         "text": "allAlbum"
+      },
+      {
+        "pagePath": "pages/PickBuying/PickBuying",
+        "text": "PickThings"
       }
+      
     ],
     "backgroundColor": "#000",
     "color": "#fff"
